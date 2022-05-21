@@ -39,7 +39,7 @@ The Canunda engine, which powers Zeebe, Tasklist, and Operate, lives in the Camu
 ## Server 2 - Front-end
 The React files could be located on a dedicated server.
 
-## Server 3 - API Gateway
+## Server 3 - API Gateways (User and Driver)
 The API gateway which allows the front-end to communicate with the back-end services could be located on a dedicated server.
 
 ## Servers 4, 5, 6 - Back-end Swimlanes (Request Handler, Navigation, Billing)
