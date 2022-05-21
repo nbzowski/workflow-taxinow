@@ -29,3 +29,18 @@ As the process moves along the Camunda Engine, known as Zeebe, will create "jobs
 ## Database
 
 Any time a service task needs data that is stored in a database, it retrieves it using standard SQL queries.
+
+
+# How to Deploy the System - The Five Servers
+
+## Server 1 - Camunda Engine
+The Canunda engine, which powers Zeebe, Tasklist, and Operate, lives in the Camunda Cloud.
+
+## Server 2 - Front-end
+The React files could be located on a dedicated server.
+
+## Server 3 - API Gateway
+The API gateway which allows the front-end to communicate with the back-end services could be located on a dedicated server.
+
+## Servers 4, 5, 6 - Back-end Swimlanes (Request Handler, Navigation, Billing)
+These three modules will have their own servers each (sort of like a microservices architecure). The java files that live within them can either be one for all or one for each. We will see once implemented (EDIT HERE WHEN DECIDED).
