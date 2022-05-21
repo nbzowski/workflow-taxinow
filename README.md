@@ -6,7 +6,7 @@
 
 Our actual system files. Add your completed files to the right sub-directory (i.e. front-end, api-gateway, back-end). Sub-directories are based on the layers of the architecture diagram.
 
-![System Architecture](template-files-and-resources-files/images/system-architecture.png)
+![System Architecture](template-files-and-resources/images/system-architecture.png)
 
 ## In the template-files-and-resources Folder
 
