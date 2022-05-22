@@ -6,6 +6,24 @@
 
 ![None Start Example](images/example-bpmn-none-start.png)
 
+```
+try (ZeebeClient client = ZeebeClientFactory.getZeebeClient()) {
+            client.newDeployResourceCommand()
+                    .addResourceFromClasspath("send-email.bpmn") // Filename of diagram in IntelliJ project resources folder
+                    .send()
+                    .join();
+
+            final ProcessInstanceEvent event = client.newCreateInstanceCommand()
+                    .bpmnProcessId("send-email")
+                    .latestVersion()
+                    .variables(Map.of("message_content", "Hello from the Java get started"))  // variables in "key1, value1, key2, value2" format
+                    .send()
+                    .join();
+
+}
+        
+```
+
 ### Deploying and Starting Processes with "Message Start"
 
 ![Message Start Example](images/example-bpmn-msg-start.png)
