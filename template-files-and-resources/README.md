@@ -77,6 +77,7 @@ A message throw event is essentially a service task with this line of code as th
 // messageName -> This is what triggers the corresponding message receive task to become active
 // correlationKey -> This is to identify the process. For example, this could be an emailID, such as email01
 // variables -> variables expected by the message catch event, sent in JSON format
+
 client.newPublishMessageCommand().messageName("message-start-msg").correlationKey("").variables("").send().exceptionally( throwable -> { throw new RuntimeException("Could not publish message", throwable); });;
 ```
 
