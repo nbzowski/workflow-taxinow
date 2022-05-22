@@ -10,7 +10,7 @@ Our actual system files. Add your completed files to the right sub-directory (i.
 
 ## In the template-files-and-resources Folder
 
-The skeleton files for creating classes that connect to Camunda, as well as necessary files to import the dependencies.
+Example code for work with various BPMN elements and skeleton files for creating classes that connect to Camunda, as well as necessary files to import the dependencies.
 
 # How to Build the System
 
