@@ -20,13 +20,24 @@ try (ZeebeClient client = ZeebeClientFactory.getZeebeClient()) {
                     .send()
                     .join();
 
-}
-        
+}       
 ```
 
 ### Deploying and Starting Processes with "Message Start"
 
 ![Message Start Example](images/example-bpmn-msg-start.png)
+
+```
+try (ZeebeClient client = ZeebeClientFactory.getZeebeClient()) {
+            client.newDeployResourceCommand()
+                    .addResourceFromClasspath(BPMN_FILE_NAME)
+                    .send()
+                    .join();
+
+            // Correlation key should be blank for starting new processes
+            client.newPublishMessageCommand().messageName("start2-msg").correlationKey("").variables("").send().exceptionally( throwable -> { throw new RuntimeException("Could not publish message", throwable); });;
+}
+```
 
 ### User Tasks
 
