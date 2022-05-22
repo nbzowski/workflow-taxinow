@@ -91,7 +91,7 @@ private static final Logger LOG = LogManager.getLogger(EmailWorker.class);
                 variablesMap.put("returnMsg", "Email sent successfully!");
                 // END - Return variables preparation
 
-                //jobClient.newCompleteCommand(job.getKey()).send()
+                // Send the job completed command to Camunda. This is how Camunda knows to move to the next task in the process
                 jobClient.newCompleteCommand(job.getKey()).variables(variablesMap).send()
                         .whenComplete((result, exception) -> {
                             if (exception == null) {
