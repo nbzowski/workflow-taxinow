@@ -8,13 +8,13 @@ import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class EmailWorker {
+public class ServiceTaskTemplate {
 
-    private static final Logger LOG = LogManager.getLogger(EmailWorker.class);
+    private static final Logger LOG = LogManager.getLogger(ServiceTaskTemplate.class);
 
     public static void main(String[] args) {
         try (ZeebeClient client = ZeebeClientFactory.getZeebeClient()) {
-            client.newWorker().jobType("email").handler((jobClient, job) -> {
+            client.newWorker().jobType("service-task-id").handler((jobClient, job) -> { // service-task-id must match the task type in Camunda!
                 final String message_content = (String)job.getVariablesAsMap().get("message_content");
 
                 LOG.info("Sending email with message content: {}", message_content);
