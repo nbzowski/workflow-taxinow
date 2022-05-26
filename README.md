@@ -36,11 +36,8 @@ Any time a service task needs data that is stored in a database, it retrieves it
 ## Server 1 - Camunda Engine
 The Canunda engine, which powers Zeebe, Tasklist, and Operate, lives in the Camunda Cloud.
 
-## Server 2 - Front-end
-The React files could be located on a dedicated server.
+## Server 2 - Front-end & API Gateways (User and Driver)
+The React files could be located on a dedicated server. The API gateway which allows the front-end to communicate with the back-end services could be located on a dedicated server.
 
-## Server 3 - API Gateways (User and Driver)
-The API gateway which allows the front-end to communicate with the back-end services could be located on a dedicated server.
-
-## Servers 4, 5, 6, 7 - Back-end Swimlanes (Request Handler, Navigation, Billing, Database)
+## Servers 3, 4, 5, 6 - Back-end Swimlanes (Request Handler, Navigation, Billing, Database)
 These three modules will have their own servers each (sort of like a microservices architecure). The java files that live within them can either be one for all or one for each. We will see once implemented (EDIT HERE WHEN DECIDED).
