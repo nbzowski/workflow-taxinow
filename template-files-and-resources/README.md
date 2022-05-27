@@ -45,6 +45,8 @@ try (ZeebeClient client = ZeebeClientFactory.getZeebeClient()) {
 
 The io.camunda.tasklist dependency must be imported into the IntelliJ project.
 
+https://github.com/camunda-community-hub/camunda-tasklist-client-java
+
 ```
 SaasAuthentication sa = new SaasAuthentication("F5JcQaWof3-6q3py6wSKrgFLaUA6W_iO", "zzeeXpNVKVvKMkVTSR3eudDU1NKV0kl4_FNh4q_k6D0is-S5vOrHXBzNlFGU2~hJ");
 CamundaTaskListClient client = null;
