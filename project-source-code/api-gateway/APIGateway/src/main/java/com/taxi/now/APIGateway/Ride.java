@@ -1,6 +1,4 @@
 package com.taxi.now.APIGateway;
 
-public class RequestRide {
-
-
+public class Ride {
 }
