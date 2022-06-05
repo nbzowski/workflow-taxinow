@@ -15,16 +15,43 @@ public class ServiceTaskTemplate {
     public static void main(String[] args) {
         try (ZeebeClient client = ZeebeClientFactory.getZeebeClient()) {
             client.newWorker().jobType("service-task-id").handler((jobClient, job) -> { // service-task-id must match the task type in Camunda!
-                final String message_content = (String)job.getVariablesAsMap().get("message_content");
+                
+                // VARIABLES SENT FROM CAMUNDA ZEEBE PROCESS INSTANCE
+                final String some_variable_1 = (String)job.getVariablesAsMap().get("some_variable_1");
+                final String some_variable_2 = (String)job.getVariablesAsMap().get("some_variable_2");
+                final String some_variable_3 = (String)job.getVariablesAsMap().get("some_variable_3");
 
+                
+                
+                
+                // *** SERVICE TASK BUSINESS LOGIC BEGINS ***
+                
+                // Do something that completes this task
+                
+                // *** SERVICE TASK BUSINESS LOGIC BEGINS ***
+                
+                
+                
+                
+                
+                // Write a log (change the text to make it job specific
                 LOG.info("Sending email with message content: {}", message_content);
 
-                // START - Return variables preparation
+                
+                
+                
+                // *** START - Return variables preparation ***
+                
                 Map<String, Object> variablesMap = new HashMap<>();
-                variablesMap.put("returnMsg", "Email sent successfully!");
-                // END - Return variables preparation
+                variablesMap.put("key", "value");
+                
+                // *** END - Return variables preparation ***
 
-                //jobClient.newCompleteCommand(job.getKey()).send()
+                
+                
+                
+                
+                //jobClient.newCompleteCommand(job.getKey()).send() // Uncomment and use this once for tasks that do not return variables
                 jobClient.newCompleteCommand(job.getKey()).variables(variablesMap).send()
                         .whenComplete((result, exception) -> {
                             if (exception == null) {
@@ -40,6 +67,7 @@ public class ServiceTaskTemplate {
         }
     }
 
+    // Allows the service task to run and continually poll for jobs to work on
     private static void waitUntilSystemInput(final String exitCode) {
         try (final Scanner scanner = new Scanner(System.in)) {
             while (scanner.hasNextLine()) {
