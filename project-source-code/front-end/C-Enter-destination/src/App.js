@@ -30,32 +30,20 @@ const libraries = ['places'];
 
 function App() {
   const [ip, setIP] = useState('');
-  //const [postId, setPostId] = useState('');
- 
-  //creating function to load ip address from the API 
-    async function getData() {
-    const res = await axios.get('https://geolocation-db.com/json/');
+  const getData = async()=>{
+    const res = await axios.get('https://geolocation-db.com/json/')
     console.log(res.data);
-    setIP(res.data.IPv4);
-  }
+    setIP(res.data.IPv4)
+}
+useEffect(()=>{
+    //passing getData method to the lifecycle method
+    getData()
+},[])
+  
 
-useEffect(() => {
-    // POST request using fetch inside useEffect React hook
-    
-    const requestOptions = {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json' },
-        body: JSON.stringify(getData())
-    }; 
-    fetch('https://reqres.in/api/posts', requestOptions) //link to API endpoint that Petar will generate
-        .then(response => response.json())
-       // .then(data => setPostId(data.id));
-        .catch(err => {
-         console.log("Error: " + err)
-    })
-// empty dependency array means this effect will only run once (like componentDidMount in classes)
-}, [ip]);
-      
+
+    //fetch('https://reqres.in/api/posts', requestOptions) //link to API endpoint that Petar will generate
+     
 
 
 
@@ -69,48 +57,61 @@ useEffect(() => {
   const [directionsResponse, setDirectionsResponse] = useState(null)
   const [distance, setDistance] = useState('')
   const [duration, setDuration] = useState('')
-
+  
   /** @type React.MutableRefObject<HTMLInputElement> */
   const originRef = useRef()
   /** @type React.MutableRefObject<HTMLInputElement> */
-  const destiantionRef = useRef()
+  const destinationRef = useRef()
 
   if (!isLoaded) {
     return <SkeletonText />
   }
 
   async function calculateRoute() {
-    if (originRef.current.value === '' || destiantionRef.current.value === '') {
+    if (originRef.current.value === '' || destinationRef.current.value === '') {
       return
     }
     // eslint-disable-next-line no-undef
     const directionsService = new google.maps.DirectionsService()
     const results = await directionsService.route({
       origin: originRef.current.value,
-      destination: destiantionRef.current.value,
+      destination: destinationRef.current.value,
       // eslint-disable-next-line no-undef
       travelMode: google.maps.TravelMode.DRIVING,
     })
+    //const origin = originRef.value
+   // const destination = destinationRef.value;
+    
     setDirectionsResponse(results)
     setDistance(results.routes[0].legs[0].distance.text)
     setDuration(results.routes[0].legs[0].duration.text)
   }
 
- // const handleRequest = () => {
- //  const response =  fetch ('', {
-   //   method: 'POST',
-    //  headers: { 'Content-Type': 'application/json' },
-    //  body: JSON.stringify({ title: 'React POST Request Example' })})
-     // const data = response.json();
-    //  this.setState({ postId: data.id });
-  ;
+   const sendRequest = () => {
+   const form = {originRef, destinationRef, distance, duration };
+      // POST request using fetch inside useEffect React hook
+     fetch('https://reqres.in/api/posts', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(form)
+     })
+    }
+    //  fetch('https://reqres.in/api/posts', requestOptions) //link to API endpoint that Petar will generate
+      //    .then(response => response.json())
+         // .then(data => setPostId(data.id));
+        //  .catch(err => {
+           //console.log("Error: " + err)
+    //  })}
+  // empty dependency array means this effect will only run once (like componentDidMount in classes)
+  
+   
 
   function clearRoute() {
     setDirectionsResponse(null)
     setDistance('')
     setDuration('')
     originRef.current.value = ''
-    destiantionRef.current.value = ''
+    destinationRef.current.value = ''
   }
 
   return (
@@ -125,7 +126,7 @@ useEffect(() => {
     
        {
         process.env.REACT_APP_GOOGLE_MAPS_API_KEY
-       }
+      }
        
         {/* Google Map Box */}
         <GoogleMap
@@ -156,6 +157,7 @@ useEffect(() => {
         zIndex='1'
       >
         <HStack spacing={2} justifyContent='space-between'>
+        
           <Box flexGrow={1}>
             <Autocomplete>
               <Input type='text' placeholder='Origin' ref={originRef} />
@@ -166,16 +168,16 @@ useEffect(() => {
               <Input
                 type='text'
                 placeholder='Destination'
-                ref={destiantionRef}
+                ref={destinationRef}
               />
             </Autocomplete>
           </Box>
-
+         
           <ButtonGroup>
             <Button colorScheme='blue' type='submit' onClick={calculateRoute}>
               Calculate Route
             </Button>
-            <Button colorScheme='blue' type='submit' onClick={calculateRoute}>
+            <Button colorScheme='blue' type='submit' onClick={sendRequest}>
               Request a ride
             </Button>
             <IconButton
@@ -186,8 +188,10 @@ useEffect(() => {
           </ButtonGroup>
         </HStack>
         <HStack spacing={4} mt={4} justifyContent='space-between'>
+          
           <Text>Distance: {distance} </Text>
           <Text>Duration: {duration} </Text>
+         
           <IconButton
             aria-label='center back'
             icon={<FaLocationArrow />}
