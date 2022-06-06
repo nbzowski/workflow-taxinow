@@ -1,5 +1,7 @@
 package com.taxi.now.APIGateway;
 
+import io.camunda.zeebe.client.ZeebeClient;
+import io.camunda.zeebe.client.api.response.ProcessInstanceEvent;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,19 +13,33 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/user_needs_a_ride")
+@RequestMapping("/api/")
 public class CreateRide
 {
     //TODO tried to return new ride
-    @PostMapping("message")
+    @PostMapping("/request_a_ride")
     @ResponseBody
-    public String getMessage(@RequestParam(name = "user_id") List<String> user_id)
+    public String getRide(@RequestParam(name = "user_id") List<String> user_id, @RequestParam(name = "userSessionID") List<String> userSessionID, @RequestParam(name="userYCoordinate") List<String> userYCoordinate, @RequestParam(name="userXCoordinate") List<String> userXCoordinate)
     //userSessionID, userYCoordinate, userXCoordinate.
     {
-        return "ID: " + user_id ;
-        //String input = "{\"key\":\"user_id\",\"value\":\"22\"};
+        try (ZeebeClient client = ZeebeClientFactory.getZeebeClient()) {
+            client.newDeployResourceCommand()
+                    .addResourceFromClasspath("group6.bpmn") // Filename of diagram in IntelliJ project resources folder
+                    .send()
+                    .join();
 
-        //
+            final ProcessInstanceEvent event = client.newCreateInstanceCommand()
+                    .bpmnProcessId("send-email")
+                    .latestVersion()
+                    .variables(Map.of(user_id, "Hello from the Java get started"))  // variables in "key1, value1, key2, value2" format
+                    .variables(Map.of(userSessionID, "Hello from the Java get started"))  // variables in "key1, value1, key2, value2" format
+                    .variables(Map.of(userYCoordinate, "Hello from the Java get started"))  // variables in "key1, value1, key2, value2" format
+                    .variables(Map.of(userXCoordinate, "Hello from the Java get started"))  // variables in "key1, value1, key2, value2" format
+                    .send()
+                    .join();
+
+        }
+        return "ID: " + user_id + "userXCoordinate" + userXCoordinate ;
     }
 
 }
