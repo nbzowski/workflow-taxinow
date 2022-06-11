@@ -41,5 +41,23 @@ public class CreateRide
         }
         return "ID: " + user_id + "userXCoordinate" + userXCoordinate ;
     }
+    
+    //ERALDA & NICK tried to return new ride
+    @RequestMapping(value = "/message", method = RequestMethod.POST )
+    public void getMessage(@RequestParam Map<String, String> requestParams)
+    //userSessionID, userYCoordinate, userXCoordinate.
+    throws Exception {
+        String x = requestParams.get("x");
+        String y = requestParams.get("y");
+        String distance = requestParams.get("distance");
+        String duration = requestParams.get("duration");
+        System.out.println("Latitude: " +  x +
+                "\n Longitude :" + y +
+                "\n Distance : "+ distance + "\n Duration:" + duration);
+        
+        
+        // your code logic
+        return ;
+    }
 
 }
