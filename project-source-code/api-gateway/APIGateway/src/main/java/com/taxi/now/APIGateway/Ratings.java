@@ -12,7 +12,7 @@ public class Ratings {
    
     @RequestMapping(value = "/ratings", method = RequestMethod.POST )
     public void getMessage(@RequestParam Map<String, String> requestParams)
-    //userSessionID, userYCoordinate, userXCoordinate.
+       
     throws Exception {
         String rating = requestParams.get("rating");
         String description = requestParams.get("description");
