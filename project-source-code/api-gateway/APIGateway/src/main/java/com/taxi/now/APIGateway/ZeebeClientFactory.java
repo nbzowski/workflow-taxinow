@@ -6,9 +6,9 @@ public class ZeebeClientFactory {
 
     public static ZeebeClient getZeebeClient() {
         return ZeebeClient.newCloudClientBuilder()
-                .withClusterId("10f14fca-c94d-40e7-be13-18e9a6803cf1")
-                .withClientId("pf6E68Bi.K9gQ~VQWgE.Qt22fpOfe6df")
-                .withClientSecret("P~.yRr.J3_daVPeb4MSWzyyF4duLtF6uUmm0vpNcsxW4HWByO6SxdnXpK8r-avCl")
+                .withClusterId("a8434432-ba71-4f54-b4ab-aa03d19131e9")
+                .withClientId("aMLk~WQhyZ5BgzOcIx7mDizztELApFAt")
+                .withClientSecret("1PP6LP.F5~gRvKuU~lDd7KtC_4frOI56-IoeWVuAM3GT4bOnnxyQu~qBI_71p~9e")
                 .withRegion("bru-2")
                 .build();
     }
