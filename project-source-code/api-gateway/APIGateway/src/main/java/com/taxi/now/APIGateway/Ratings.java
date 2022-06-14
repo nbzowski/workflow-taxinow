@@ -9,14 +9,17 @@ import java.util.List;
 @RequestMapping("/api/")
 public class Ratings {
 
-    @PostMapping("/ratings")
-    @ResponseBody
-    public List showRatings (@RequestParam(name = "rating") List<Integer> rating, @RequestParam(name = "description") List<String> description)
-    {
-        List list = new ArrayList<>();
-        list.add(rating);
-        list.add(description);
-        return list;
+   
+    @RequestMapping(value = "/ratings", method = RequestMethod.POST )
+    public void getMessage(@RequestParam Map<String, String> requestParams)
+    //userSessionID, userYCoordinate, userXCoordinate.
+    throws Exception {
+        String rating = requestParams.get("rating");
+        String description = requestParams.get("description");
+        System.out.println("Rating: " +  rating +
+                "\n Description :" + description);
+              
+        return ;
     }
 
 }
