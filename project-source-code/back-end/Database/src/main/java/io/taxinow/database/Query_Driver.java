@@ -14,6 +14,7 @@ import org.apache.logging.log4j.Logger;
 
 public class Query_Driver {
 
+
     private static final Logger LOG = LogManager.getLogger(Query_Driver.class);
     public static void main(String[] args) {
         try (ZeebeClient client = ZeebeClientFactory.getZeebeClient()) {
@@ -36,8 +37,7 @@ public class Query_Driver {
 
                     // our SQL SELECT query.
 
-                    String query = " SELECT CASE WHEN  (X_Coordinate > userXCoordinate - 2 AND X_Coordinate < userXCoordinate + 2) AND (Y_Coordinate > userYCoordinate - 2 AND Y_Coordinate < userYCoordinate + 2 ) AND  Availability = 'YES' ) * FROM Driver " ;
-                    //String query = " SELECT IIF( (X_Coordinate > userXCoordinate - 2 AND X_Coordinate < userXCoordinate + 2) AND (Y_Coordinate > userYCoordinate - 2 AND Y_Coordinate < userYCoordinate + 2 ) AND  Availability = 'YES' ) * FROM Driver" ;
+                    String query = " SELECT * FROM Driver WHERE (Driver_X_Coordinate >= UserXCoordinate - 0.01 AND Driver_X_Coordinate <= UserXCoordinate + 0.01) AND (Driver_Y_Coordinate >= UserYCoordinate - 0.01 AND Driver_Y_Coordinate <= UserYCoordinate + 0.01 AND Availability = 'YES')" ;
                     // create the java statement
                     Statement st = conn.createStatement();
 
@@ -50,11 +50,17 @@ public class Query_Driver {
                         String firstName = rs.getString("First_Name");
                         String lastName = rs.getString("Last_Name");
                         int rating = rs.getInt("Rating");
-                        int distance = rs.getInt("Distance");
+                        int rating_count = rs.getInt("Rating_Count");
                         String gender = rs.getString("Gender");
+                        String username = rs.getString("Username");
+                        String availability = rs.getString("Availability");
+                        Float driver_x_coordinate  = rs.getFloat("Driver_X_Coordinate");
+                        Float driver_y_coordinate  = rs.getFloat("Driver_Y_Coordinate");
+                        Float rating_avg  = rs.getFloat("Rating_AVG");
+
 
                         // print the results
-                        System.out.format("%s, %s, %s, %s, %s, %s\n", id, firstName, lastName, rating, distance, gender);
+                        System.out.format("%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s\n", id, firstName, lastName, rating, rating_count, username, availability, driver_x_coordinate, driver_y_coordinate, gender, rating_avg);
                     }
                     st.close();
                 } catch (Exception e) {
