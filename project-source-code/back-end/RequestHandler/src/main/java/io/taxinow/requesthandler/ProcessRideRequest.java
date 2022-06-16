@@ -16,14 +16,14 @@ public class ProcessRideRequest {
 
     public static void main(String[] args) {
         try (ZeebeClient client = ZeebeClientFactory.getZeebeClient()) {
-            client.newWorker().jobType("email").handler((jobClient, job) -> {
-                final String message_content = (String)job.getVariablesAsMap().get("message_content");
+            client.newWorker().jobType("process-ride-request").handler((jobClient, job) -> {
+                //final String message_content = (String)job.getVariablesAsMap().get("message_content");
 
-                LOG.info("Sending email with message content: {}", message_content);
+                //LOG.info("Sending email with message content: {}", message_content);
 
                 // START - Return variables preparation
-                Map<String, Object> variablesMap = new HashMap<>();
-                variablesMap.put("returnMsg", "Email sent successfully!");
+                Map<String, Object> variablesMap = job.getVariablesAsMap();
+                //variablesMap.put("returnMsg", "Email sent successfully!");
                 // END - Return variables preparation
 
                 // Send the job completed command to Camunda. This is how Camunda knows to move to the next task in the process
