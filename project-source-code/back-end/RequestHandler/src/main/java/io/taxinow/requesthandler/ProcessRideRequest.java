@@ -9,7 +9,7 @@ import java.util.Scanner;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
-
+//this is a test
 public class ProcessRideRequest {
 
     private static final Logger LOG = LogManager.getLogger(ProcessRideRequest.class);
