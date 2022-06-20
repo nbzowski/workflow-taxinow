@@ -10,13 +10,13 @@ import io.taxinow.requesthandler.ZeebeClientFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class ProcessRideRequest {
+public class ProcessPaymentRequest {
 
-    private static final Logger LOG = LogManager.getLogger(ProcessRideRequest.class);
+    private static final Logger LOG = LogManager.getLogger(ProcessPaymentRequest.class);
 
     public static void main(String[] args) {
         try (ZeebeClient client = ZeebeClientFactory.getZeebeClient()) {
-            client.newWorker().jobType("process-request").handler((jobClient, job) -> { // service-task-id must match the task type in Camunda!
+            client.newWorker().jobType("process-payment-request").handler((jobClient, job) -> { // service-task-id must match the task type in Camunda!
 
                 // VARIABLES SENT FROM CAMUNDA ZEEBE PROCESS INSTANCE
                 final String some_variable_1 = (String)job.getVariablesAsMap().get("some_variable_1");

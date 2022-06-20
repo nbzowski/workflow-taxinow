@@ -1,4 +1,4 @@
-package io.taxinow.requesthandler;
+package io.taxinow.requesthandler;  // CHANGE to match your project
 
 import io.camunda.zeebe.client.ZeebeClient;
 
@@ -10,50 +10,32 @@ import io.taxinow.requesthandler.ZeebeClientFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class ProcessRideRequest {
+public class SendRequest {
 
-    private static final Logger LOG = LogManager.getLogger(ProcessRideRequest.class);
+    private static final Logger LOG = LogManager.getLogger(SendRequest.class);
+
+    private static final String JOB_TYPE = "send-request";
 
     public static void main(String[] args) {
         try (ZeebeClient client = ZeebeClientFactory.getZeebeClient()) {
-            client.newWorker().jobType("process-request").handler((jobClient, job) -> { // service-task-id must match the task type in Camunda!
+            client.newWorker().jobType(JOB_TYPE).handler((jobClient, job) -> {
+                final String userSessionID = (String)job.getVariablesAsMap().get("userSessionID");
 
-                // VARIABLES SENT FROM CAMUNDA ZEEBE PROCESS INSTANCE
-                final String some_variable_1 = (String)job.getVariablesAsMap().get("some_variable_1");
-                final String some_variable_2 = (String)job.getVariablesAsMap().get("some_variable_2");
-                final String some_variable_3 = (String)job.getVariablesAsMap().get("some_variable_3");
+                LOG.info("Sending message to back-end with user session ID: {}", userSessionID);
 
-
-
-
-                // *** SERVICE TASK BUSINESS LOGIC BEGINS ***
-
-                // Do something that completes this task
-
-                // *** SERVICE TASK BUSINESS LOGIC BEGINS ***
-
-
-
-
-
-                // Write a log (change the text to make it job specific
-                //LOG.info("Sending email with message content: {}", message_content);
-
-
-
-
-                // *** START - Return variables preparation ***
-
+                // START - Return variables preparation
                 Map<String, Object> variablesMap = new HashMap<>();
-                variablesMap.put("key", "value");
+                variablesMap.put("userSessionID", userSessionID);
+                // END - Return variables preparation
 
-                // *** END - Return variables preparation ***
+                // messageName -> This is what triggers the corresponding message receive task to become active
+                // correlationKey -> This is to identify the process. For example, this could be an emailID, such as email01
+                // variables -> variables expected by the message catch event, sent in JSON format
 
+                // For Message Start Events, the message correlation key is blank!!
+                client.newPublishMessageCommand().messageName("user-msg-send-dest-address").correlationKey("").variables(variablesMap).send().exceptionally( throwable -> { throw new RuntimeException("Could not publish message", throwable); });;
 
-
-
-
-                //jobClient.newCompleteCommand(job.getKey()).send() // Uncomment and use this once for tasks that do not return variables
+                //jobClient.newCompleteCommand(job.getKey()).send()
                 jobClient.newCompleteCommand(job.getKey()).variables(variablesMap).send()
                         .whenComplete((result, exception) -> {
                             if (exception == null) {
@@ -69,7 +51,6 @@ public class ProcessRideRequest {
         }
     }
 
-    // Allows the service task to run and continually poll for jobs to work on
     private static void waitUntilSystemInput(final String exitCode) {
         try (final Scanner scanner = new Scanner(System.in)) {
             while (scanner.hasNextLine()) {
