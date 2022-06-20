@@ -1,2 +1,11 @@
+io/taxinow/requesthandler/SendCompletionConfirmation.class
+io/taxinow/requesthandler/DispatchDrivers.class
+io/taxinow/requesthandler/SendAlternatives.class
+io/taxinow/requesthandler/ProcessAlternatives.class
 io/taxinow/requesthandler/ProcessRideRequest.class
+io/taxinow/requesthandler/CompleteRide.class
+io/taxinow/requesthandler/SendRequest.class
 io/taxinow/requesthandler/ZeebeClientFactory.class
+io/taxinow/requesthandler/HandleRequest.class
+io/taxinow/requesthandler/ProcessPaymentRequest.class
+io/taxinow/requesthandler/SendConfirmation.class

@@ -33,7 +33,8 @@ public class SendRequest {
                 // variables -> variables expected by the message catch event, sent in JSON format
 
                 // For Message Start Events, the message correlation key is blank!!
-                client.newPublishMessageCommand().messageName("user-msg-send-dest-address").correlationKey("").variables(variablesMap).send().exceptionally( throwable -> { throw new RuntimeException("Could not publish message", throwable); });;
+                //change message name
+                client.newPublishMessageCommand().messageName("driver-receive-1").correlationKey(userSessionID).variables(variablesMap).send().exceptionally( throwable -> { throw new RuntimeException("Could not publish message", throwable); });;
 
                 //jobClient.newCompleteCommand(job.getKey()).send()
                 jobClient.newCompleteCommand(job.getKey()).variables(variablesMap).send()

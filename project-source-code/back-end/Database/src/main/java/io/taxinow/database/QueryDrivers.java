@@ -24,7 +24,7 @@ public class QueryDrivers {
                 final String message_content = (String)job.getVariablesAsMap().get("message_content");
 
 
-
+/*
                         try {
                             // create our mysql database connection
                             String myDriver = "com.mysql.cj.jdbc.Driver";
@@ -60,6 +60,7 @@ public class QueryDrivers {
                             System.err.println(e.getMessage());
                         }
 
+*/
 
                 LOG.info("Sending email with message content: {}", message_content);
 
