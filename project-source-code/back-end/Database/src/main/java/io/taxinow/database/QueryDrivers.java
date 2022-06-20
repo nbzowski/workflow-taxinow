@@ -20,7 +20,7 @@ public class QueryDrivers {
 
     public static void main(String[] args) {
         try (ZeebeClient client = ZeebeClientFactory.getZeebeClient()) {
-            client.newWorker().jobType("email").handler((jobClient, job) -> {
+            client.newWorker().jobType("query-drivers").handler((jobClient, job) -> {
                 final String message_content = (String)job.getVariablesAsMap().get("message_content");
 
 

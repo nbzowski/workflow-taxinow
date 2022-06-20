@@ -18,14 +18,13 @@ public class Query_Driver {
     private static final Logger LOG = LogManager.getLogger(Query_Driver.class);
     public static void main(String[] args) {
         try (ZeebeClient client = ZeebeClientFactory.getZeebeClient()) {
-            client.newWorker().jobType("service-task-id").handler((jobClient, job) -> { // service-task-id must match the task type in Camunda!
+            client.newWorker().jobType("query-user-data").handler((jobClient, job) -> { // service-task-id must match the task type in Camunda!
 
                 // VARIABLES SENT FROM CAMUNDA ZEEBE PROCESS INSTANCE
                 final double userXCoordinate = (double)job.getVariablesAsMap().get("userXCoordinate");
                 final double userYCoordinate = (double)job.getVariablesAsMap().get("userYCoordinate");
 
-
-                                final String message_content = (String)job.getVariablesAsMap().get("message_content");
+                final String message_content = (String)job.getVariablesAsMap().get("message_content");
 
                 try {
 

@@ -18,7 +18,7 @@ public class QueryAlternatives {
 
     public static void main(String[] args) {
         try (ZeebeClient client = ZeebeClientFactory.getZeebeClient()) {
-            client.newWorker().jobType("service-task-id").handler((jobClient, job) -> { // service-task-id must match the task type in Camunda!
+            client.newWorker().jobType("query-alternative-solutions").handler((jobClient, job) -> { // service-task-id must match the task type in Camunda!
 
                 // VARIABLES SENT FROM CAMUNDA ZEEBE PROCESS INSTANCE
                 final double userXCoordinate = (double)job.getVariablesAsMap().get("userXCoordinate");

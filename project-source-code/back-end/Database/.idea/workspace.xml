@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1044402b-2cf9-4fe8-b8b4-b20a5f202462" name="Changes" comment="" />
+    <list default="true" id="1044402b-2cf9-4fe8-b8b4-b20a5f202462" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/taxinow/database/QueryAlternatives.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/taxinow/database/QueryAlternatives.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/taxinow/database/QueryDrivers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/taxinow/database/QueryDrivers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/taxinow/database/Query_Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/taxinow/database/Query_Driver.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,7 +37,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/pc/Documents/GitHub/workflow-taxinow/project-source-code/back-end/Database/src/main/java/io/taxinow/database"
+    "last_opened_file_path": "/Users/kevinpakoy/IdeaProjects/workflow-taxinow/project-source-code/back-end/Database"
   }
 }]]></component>
   <component name="RecentsManager">
