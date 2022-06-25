@@ -52,7 +52,7 @@
                             <archive>
                                 <manifest>
                                     <mainClass>
-                                        io.taxinow.database.QueryDrivers
+                                        io.taxinow.database.QueryAlternatives
                                     </mainClass>
                                 </manifest>
                             </archive>

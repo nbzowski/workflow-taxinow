@@ -52,7 +52,7 @@
                             <archive>
                                 <manifest>
                                     <mainClass>
-                                        io.taxinow.requesthandler.ProcessRideRequest
+                                        io.taxinow.requesthandler.SendRequest
                                     </mainClass>
                                 </manifest>
                             </archive>

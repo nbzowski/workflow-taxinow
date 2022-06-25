@@ -51,7 +51,7 @@
                             <archive>
                                 <manifest>
                                     <mainClass>
-                                        io.taxinow.billing.ProcessPayment
+                                        io.taxinow.billing.SendPaymentConfirmation
                                     </mainClass>
                                 </manifest>
                             </archive>
