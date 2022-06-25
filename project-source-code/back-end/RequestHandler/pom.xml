@@ -52,7 +52,7 @@
                             <archive>
                                 <manifest>
                                     <mainClass>
-                                        io.taxinow.requesthandler.DispatchDrivers
+                                        io.taxinow.requesthandler.ProcessRideRequest
                                     </mainClass>
                                 </manifest>
                             </archive>
