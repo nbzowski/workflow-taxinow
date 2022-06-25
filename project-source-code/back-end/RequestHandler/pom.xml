@@ -52,7 +52,7 @@
                             <archive>
                                 <manifest>
                                     <mainClass>
-                                        io.taxinow.requesthandler.SendRequest
+                                        io.taxinow.requesthandler.DispatchDrivers
                                     </mainClass>
                                 </manifest>
                             </archive>
