@@ -20,12 +20,14 @@ public class SendConfirmation {
         try (ZeebeClient client = ZeebeClientFactory.getZeebeClient()) {
             client.newWorker().jobType(JOB_TYPE).handler((jobClient, job) -> {
                 final String userSessionID = (String)job.getVariablesAsMap().get("userSessionID");
+                final String driverConfirmed = (String)job.getVariablesAsMap().get("driverConfirmed");
 
                 LOG.info("Sending message to back-end with user session ID: {}", userSessionID);
 
                 // START - Return variables preparation
                 Map<String, Object> variablesMap = new HashMap<>();
                 variablesMap.put("userSessionID", userSessionID);
+                variablesMap.put("driverConfirmed", driverConfirmed);
                 // END - Return variables preparation
 
                 // messageName -> This is what triggers the corresponding message receive task to become active

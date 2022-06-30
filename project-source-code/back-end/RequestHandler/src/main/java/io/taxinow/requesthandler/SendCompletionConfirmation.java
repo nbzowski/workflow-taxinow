@@ -14,7 +14,7 @@ public class SendCompletionConfirmation {
 
     private static final Logger LOG = LogManager.getLogger(SendCompletionConfirmation.class);
 
-    private static final String JOB_TYPE = "send-completion-confirmation";
+    private static final String JOB_TYPE = "send-ride-complete-msg";
 
     public static void main(String[] args) {
         try (ZeebeClient client = ZeebeClientFactory.getZeebeClient()) {

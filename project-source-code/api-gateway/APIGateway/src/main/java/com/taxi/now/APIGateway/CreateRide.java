@@ -7,7 +7,7 @@ import io.camunda.tasklist.dto.TaskState;
 import io.camunda.zeebe.client.ZeebeClient;
 import io.camunda.zeebe.client.api.response.ProcessInstanceEvent;
 import org.springframework.web.bind.annotation.*;
-import io.camunda.tasklist.exception.TaskListException;
+//import io.camunda.tasklist.exception.TaskListException;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -19,6 +19,11 @@ public class CreateRide
 {
     private static final String USER_TASK_ASSIGNEE = "user-api-gateway" ;
     //TODO tried to return new ride
+
+    @RequestMapping(value = "/health", method = RequestMethod.GET)
+    public void getHealth() {
+        return ;
+    }
 
     //ERALDA & NICK tried to return new ride
     @RequestMapping(value = "/message", method = RequestMethod.POST )
@@ -39,7 +44,9 @@ public class CreateRide
                     .taskListUrl("https://bru-2.tasklist.camunda.io/a8434432-ba71-4f54-b4ab-aa03d19131e9/graphql").build();
             System.out.println("Client connection successful: " + client);
 
-            List<Task> tasks = client.getTasks(true, USER_TASK_ASSIGNEE, TaskState.CREATED, null); // CHANGE the user task id in the constants section as needed
+            //List<Task> tasks = client.getTasks(true, USER_TASK_ASSIGNEE, TaskState.CREATED, null); // CHANGE the user task id in the constants section as needed
+
+            List<Task> tasks = client.getTasksWithVariables(true, "user-api-gateway", TaskState.CREATED, null);
 
             // Complete all tasks
             for(Task task : tasks) {
@@ -48,17 +55,25 @@ public class CreateRide
                 // TODO get the variables from the task, do the business logic to complete the user task, and return the results
 
                 try (ZeebeClient client2 = ZeebeClientFactory.getZeebeClient()) {
-                    client2.newPublishMessageCommand().messageName("user-msg-send-dest-address").correlationKey("").variables("").send().exceptionally(throwable -> {
+                    System.out.println("Throwing message");
+
+                    // Get and send all variables
+                    // ADDED: task.getVariables();
+                    //System.out.println("Variables: " + task.getVariables().get(0));
+
+                    client2.newPublishMessageCommand().messageName("send-dest-addr").correlationKey(userId).variables(Map.of("userSessionID", userId)).send().exceptionally(throwable -> {
                         throw new RuntimeException("Could not publish message", throwable);
                     });
+                    Thread.sleep(10000);
                 };
 
+                //client.completeTask(task.getId(), Map.of("test", "test"));
                 client.completeTask(task.getId(), Map.of("user-dest-addr", "Starbucks")); // ADD the return variables (i.e. the user's destination address
 
             }
-        } catch (TaskListException e) {
+        } catch (Exception e) {
             System.out.println("ERROR " + e);
-            e.printStackTrace();
+            //e.printStackTrace();
         }
 
         // your code logic
@@ -80,14 +95,14 @@ public class CreateRide
 
         try (ZeebeClient client = ZeebeClientFactory.getZeebeClient()) {
             client.newDeployResourceCommand()
-                    .addResourceFromClasspath("front-end-testing.bpmn") // Filename of diagram in IntelliJ project resources folder
+                    .addResourceFromClasspath("combined-bpmn.bpmn") // Filename of diagram in IntelliJ project resources folder
                     .send()
                     .join();
 
             final ProcessInstanceEvent event = client.newCreateInstanceCommand()
-                    .bpmnProcessId("user-process-test")
+                    .bpmnProcessId("user-process-combined")
                     .latestVersion()
-                    .variables(Map.of("userId", userId, "userSessionID", userSessionID))  // variables in "key1, value1, key2, value2" format
+                    .variables(Map.of("userId", userId, "userSessionID", userId))  // variables in "key1, value1, key2, value2" format
                     .send()
                     .join();
 

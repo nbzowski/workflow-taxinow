@@ -19,12 +19,9 @@ public class DispatchDrivers {
             client.newWorker().jobType("dispatch-drivers").handler((jobClient, job) -> { // service-task-id must match the task type in Camunda!
 
                 // VARIABLES SENT FROM CAMUNDA ZEEBE PROCESS INSTANCE
-                final String some_variable_1 = (String)job.getVariablesAsMap().get("some_variable_1");
+                /*final String some_variable_1 = (String)job.getVariablesAsMap().get("some_variable_1");
                 final String some_variable_2 = (String)job.getVariablesAsMap().get("some_variable_2");
-                final String some_variable_3 = (String)job.getVariablesAsMap().get("some_variable_3");
-
-
-
+                final String some_variable_3 = (String)job.getVariablesAsMap().get("some_variable_3");*/
 
                 // *** SERVICE TASK BUSINESS LOGIC BEGINS ***
 
@@ -33,28 +30,19 @@ public class DispatchDrivers {
                 // *** SERVICE TASK BUSINESS LOGIC BEGINS ***
 
 
-
-
-
                 // Write a log (change the text to make it job specific
                 //LOG.info("Sending email with message content: {}", message_content);
 
-
-
-
                 // *** START - Return variables preparation ***
 
-                Map<String, Object> variablesMap = new HashMap<>();
-                variablesMap.put("key", "value");
+                //Map<String, Object> variablesMap = new HashMap<>();
+                //variablesMap.put("key", "value");
 
                 // *** END - Return variables preparation ***
 
 
-
-
-
-                //jobClient.newCompleteCommand(job.getKey()).send() // Uncomment and use this once for tasks that do not return variables
-                jobClient.newCompleteCommand(job.getKey()).variables(variablesMap).send()
+                jobClient.newCompleteCommand(job.getKey()).send() // Uncomment and use this once for tasks that do not return variables
+                //jobClient.newCompleteCommand(job.getKey()).variables(variablesMap).send()
                         .whenComplete((result, exception) -> {
                             if (exception == null) {
                                 LOG.info("Completed job successfully with result: " + result);

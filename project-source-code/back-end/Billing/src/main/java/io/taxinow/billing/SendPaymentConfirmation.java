@@ -32,7 +32,7 @@ public class SendPaymentConfirmation {
                 // variables -> variables expected by the message catch event, sent in JSON format
 
                 // For Message Start Events, the message correlation key is blank!!
-                client.newPublishMessageCommand().messageName("driver-payment-confirmation-1").correlationKey(userSessionID).variables(variablesMap).send().exceptionally( throwable -> { throw new RuntimeException("Could not publish message", throwable); });;
+                client.newPublishMessageCommand().messageName("receive-payment-conf").correlationKey(userSessionID).variables(variablesMap).send().exceptionally( throwable -> { throw new RuntimeException("Could not publish message", throwable); });;
 
                 //jobClient.newCompleteCommand(job.getKey()).send()
                 jobClient.newCompleteCommand(job.getKey()).variables(variablesMap).send()

@@ -45,7 +45,7 @@ public class ProcessPaymentRequest {
                 // *** START - Return variables preparation ***
 
                 Map<String, Object> variablesMap = new HashMap<>();
-                variablesMap.put("key", "value");
+                //variablesMap.put("key", "value");
 
                 // *** END - Return variables preparation ***
 

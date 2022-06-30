@@ -1,0 +1,5 @@
+io/taxinow/driver/ConfirmRideCompleted.class
+io/taxinow/driver/ZeebeClientFactory.class
+io/taxinow/driver/RideRequestConfirmation.class
+io/taxinow/driver/NotifyCustomerArrival.class
+io/taxinow/driver/AcceptDeclineRide.class

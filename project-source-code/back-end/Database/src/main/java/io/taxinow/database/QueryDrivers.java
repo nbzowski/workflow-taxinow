@@ -21,7 +21,7 @@ public class QueryDrivers {
     public static void main(String[] args) {
         try (ZeebeClient client = ZeebeClientFactory.getZeebeClient()) {
             client.newWorker().jobType("query-drivers").handler((jobClient, job) -> {
-                final String message_content = (String)job.getVariablesAsMap().get("message_content");
+                //final String message_content = (String)job.getVariablesAsMap().get("message_content");
 
 
 /*
@@ -62,11 +62,11 @@ public class QueryDrivers {
 
 */
 
-                LOG.info("Sending email with message content: {}", message_content);
+                //LOG.info("Sending email with message content: {}", message_content);
 
                 // START - Return variables preparation
                 Map<String, Object> variablesMap = new HashMap<>();
-                variablesMap.put("returnMsg", "Email sent successfully!");
+                //variablesMap.put("returnMsg", "Email sent successfully!");
                 // END - Return variables preparation
 
                 //jobClient.newCompleteCommand(job.getKey()).send()

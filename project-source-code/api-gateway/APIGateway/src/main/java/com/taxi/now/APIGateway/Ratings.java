@@ -40,6 +40,19 @@ public class Ratings {
             // Complete all tasks
             for(Task task : tasks) {
 
+                // SEND THE MESSAGE
+                try (ZeebeClient client2 = ZeebeClientFactory.getZeebeClient()) {
+                    System.out.println("Throwing message");
+
+                    // Get and send all variables
+                    // ADDED: task.getVariables();
+                    //System.out.println("Variables: " + task.getVariables().get(0));
+
+                    client2.newPublishMessageCommand().messageName("user-send-driver-rating").correlationKey(userId).variables(Map.of("userSessionID", userId, "count", count)).send().exceptionally(throwable -> {
+                        throw new RuntimeException("Could not publish message", throwable);
+                    });
+                    Thread.sleep(5000);
+                };
 
                 client.completeTask(task.getId(), Map.of("userId", userId, "count", count)); // ADD the return variables (i.e. the user's destination address
 

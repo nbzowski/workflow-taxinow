@@ -1,0 +1,7 @@
+io/taxinow/database/QueryDriver.class
+io/taxinow/database/UpdateDriverRating.class
+io/taxinow/database/QueryDrivers.class
+io/taxinow/database/ZeebeClientFactory.class
+io/taxinow/database/UpdateRatings.class
+io/taxinow/database/QueryAlternatives.class
+io/taxinow/database/QueryUserData.class

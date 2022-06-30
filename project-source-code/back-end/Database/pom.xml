@@ -52,7 +52,7 @@
                             <archive>
                                 <manifest>
                                     <mainClass>
-                                        io.taxinow.database.QueryDrivers
+                                        io.taxinow.database.UpdateDriverRating
                                     </mainClass>
                                 </manifest>
                             </archive>
@@ -68,8 +68,8 @@
     </build>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
     </properties>
 
 </project>
