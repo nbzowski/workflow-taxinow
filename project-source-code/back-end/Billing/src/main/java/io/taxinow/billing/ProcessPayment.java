@@ -16,7 +16,7 @@ public class ProcessPayment {
 
     public static void main(String[] args) {
         try (ZeebeClient client = ZeebeClientFactory.getZeebeClient()) {
-            client.newWorker().jobType("process-ayment").handler((jobClient, job) -> { // service-task-id must match the task type in Camunda!
+            client.newWorker().jobType("process-payment").handler((jobClient, job) -> { // service-task-id must match the task type in Camunda!
 
                 // VARIABLES SENT FROM CAMUNDA ZEEBE PROCESS INSTANCE
                 final String some_variable_1 = (String)job.getVariablesAsMap().get("some_variable_1");

@@ -5,37 +5,83 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1044402b-2cf9-4fe8-b8b4-b20a5f202462" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Billing/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Billing/src/main/java/io/taxinow/billing/ProcessPayment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Billing/src/main/java/io/taxinow/billing/SendPaymentConfirmation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Billing/src/main/java/io/taxinow/billing/ZeebeClientFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../template-files-and-resources/back-end-templates/RequestThrower/src/main/java/io/testing/thrower/ReceiveCompletionRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../template-files-and-resources/back-end-templates/RequestThrower/src/main/java/io/testing/thrower/Thrower.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../template-files-and-resources/back-end-templates/RequestThrower/src/main/java/io/testing/thrower/ThrowerPayment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../template-files-and-resources/back-end-templates/RequestThrower/src/main/java/io/testing/thrower/ZeebeClientFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../api-gateway/APIGateway/external-jar/camunda-tasklist-client-java-0.0.9.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../api-gateway/APIGateway/src/main/resources/combined-bpmn.bpmn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../api-gateway/APIGateway/src/main/resources/combined-test-bpmn.bpmn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/taxinow/database/QueryUserData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/taxinow/database/UpdateDriverRating.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/taxinow/database/UpdateRatings.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../front-end/Driver/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../front-end/Driver/src/main/java/io/taxinow/driver/ConfirmRideCompleted.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../front-end/Driver/src/main/java/io/taxinow/driver/NotifyCustomerArrival.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../deployment-files/database-query-drivers.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../api-gateway/APIGateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../api-gateway/APIGateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../api-gateway/APIGateway/src/main/java/com/taxi/now/APIGateway/ApiGatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../api-gateway/APIGateway/src/main/java/com/taxi/now/APIGateway/ApiGatewayApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../api-gateway/APIGateway/src/main/java/com/taxi/now/APIGateway/CreateRide.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../api-gateway/APIGateway/src/main/java/com/taxi/now/APIGateway/CreateRide.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../api-gateway/APIGateway/src/main/java/com/taxi/now/APIGateway/PaymentRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../api-gateway/APIGateway/src/main/java/com/taxi/now/APIGateway/PaymentRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../api-gateway/APIGateway/src/main/java/com/taxi/now/APIGateway/Ratings.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../api-gateway/APIGateway/src/main/java/com/taxi/now/APIGateway/Ratings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../api-gateway/APIGateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../api-gateway/APIGateway/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Billing/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Billing/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Billing/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Billing/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Billing/src/main/java/io/taxinow/billing/ProcessPayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Billing/src/main/java/io/taxinow/billing/ProcessPayment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Billing/src/main/java/io/taxinow/billing/SendPaymentConfirmation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Billing/src/main/java/io/taxinow/billing/SendPaymentConfirmation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Billing/target/Billing-1.0-SNAPSHOT-jar-with-dependencies.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Billing/target/Billing-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Billing/target/Billing-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Billing/target/classes/io/camunda/getstarted/ProcessPayment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Billing/target/classes/io/taxinow/billing/ProcessPayment.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Billing/target/classes/io/taxinow/billing/ProcessPayment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Billing/target/classes/io/taxinow/billing/SendPaymentConfirmation.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Billing/target/classes/io/taxinow/billing/SendPaymentConfirmation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Billing/target/classes/io/taxinow/billing/ZeebeClientFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Billing/target/classes/io/taxinow/billing/ZeebeClientFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Billing/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Billing/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Billing/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../Billing/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Billing/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../Billing/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Billing/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/taxinow/database/QueryDrivers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/taxinow/database/QueryDrivers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/taxinow/database/Query_Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/taxinow/database/Query_Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/taxinow/database/ZeebeClientFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/taxinow/database/ZeebeClientFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/taxinow/database/Query_Driver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Database-1.0-SNAPSHOT-jar-with-dependencies.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Database-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/Database-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/taxinow/database/QueryAlternatives.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/taxinow/database/QueryAlternatives.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/taxinow/database/QueryDrivers.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/taxinow/database/QueryDrivers.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/taxinow/database/Query_Driver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/taxinow/database/ZeebeClientFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/taxinow/database/ZeebeClientFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Navigation/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Navigation/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Navigation/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Navigation/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Navigation/src/main/java/io/taxinow/navigation/FindDrivers.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Navigation/src/main/java/io/taxinow/navigation/FindDrivers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Navigation/target/Navigation-1.0-SNAPSHOT-jar-with-dependencies.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Navigation/target/Navigation-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Navigation/target/Navigation-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Navigation/target/classes/io/taxinow/navigation/FindDrivers.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Navigation/target/classes/io/taxinow/navigation/FindDrivers.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Navigation/target/classes/io/taxinow/navigation/ZeebeClientFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Navigation/target/classes/io/taxinow/navigation/ZeebeClientFactory.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Navigation/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Navigation/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Navigation/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../Navigation/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Navigation/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RequestHandler/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RequestHandler/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../RequestHandler/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RequestHandler/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RequestHandler/src/main/java/io/taxinow/requesthandler/DispatchDrivers.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RequestHandler/src/main/java/io/taxinow/requesthandler/DispatchDrivers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RequestHandler/src/main/java/io/taxinow/requesthandler/HandleRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RequestHandler/src/main/java/io/taxinow/requesthandler/HandleRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RequestHandler/src/main/java/io/taxinow/requesthandler/ProcessPaymentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RequestHandler/src/main/java/io/taxinow/requesthandler/ProcessPaymentRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RequestHandler/src/main/java/io/taxinow/requesthandler/ProcessRideRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RequestHandler/src/main/java/io/taxinow/requesthandler/ProcessRideRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../RequestHandler/src/main/java/io/taxinow/requesthandler/SendCompletionConfirmation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RequestHandler/src/main/java/io/taxinow/requesthandler/SendCompletionConfirmation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../RequestHandler/src/main/java/io/taxinow/requesthandler/SendConfirmation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RequestHandler/src/main/java/io/taxinow/requesthandler/SendConfirmation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RequestHandler/src/main/java/io/taxinow/requesthandler/SendRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RequestHandler/src/main/java/io/taxinow/requesthandler/SendRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RequestHandler/target/RequestHandler-1.0-SNAPSHOT-jar-with-dependencies.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../RequestHandler/target/RequestHandler-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../RequestHandler/target/RequestHandler-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RequestHandler/target/classes/io/taxinow/requesthandler/CompleteRide.class" beforeDir="false" afterPath="$PROJECT_DIR$/../RequestHandler/target/classes/io/taxinow/requesthandler/CompleteRide.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RequestHandler/target/classes/io/taxinow/requesthandler/DispatchDrivers.class" beforeDir="false" afterPath="$PROJECT_DIR$/../RequestHandler/target/classes/io/taxinow/requesthandler/DispatchDrivers.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RequestHandler/target/classes/io/taxinow/requesthandler/HandleRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../RequestHandler/target/classes/io/taxinow/requesthandler/HandleRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RequestHandler/target/classes/io/taxinow/requesthandler/ProcessAlternatives.class" beforeDir="false" afterPath="$PROJECT_DIR$/../RequestHandler/target/classes/io/taxinow/requesthandler/ProcessAlternatives.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RequestHandler/target/classes/io/taxinow/requesthandler/ProcessPaymentRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../RequestHandler/target/classes/io/taxinow/requesthandler/ProcessPaymentRequest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../RequestHandler/target/classes/io/taxinow/requesthandler/ProcessRideRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../RequestHandler/target/classes/io/taxinow/requesthandler/ProcessRideRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RequestHandler/target/classes/io/taxinow/requesthandler/SendAlternatives.class" beforeDir="false" afterPath="$PROJECT_DIR$/../RequestHandler/target/classes/io/taxinow/requesthandler/SendAlternatives.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RequestHandler/target/classes/io/taxinow/requesthandler/SendCompletionConfirmation.class" beforeDir="false" afterPath="$PROJECT_DIR$/../RequestHandler/target/classes/io/taxinow/requesthandler/SendCompletionConfirmation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RequestHandler/target/classes/io/taxinow/requesthandler/SendConfirmation.class" beforeDir="false" afterPath="$PROJECT_DIR$/../RequestHandler/target/classes/io/taxinow/requesthandler/SendConfirmation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RequestHandler/target/classes/io/taxinow/requesthandler/SendRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../RequestHandler/target/classes/io/taxinow/requesthandler/SendRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RequestHandler/target/classes/io/taxinow/requesthandler/ZeebeClientFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/../RequestHandler/target/classes/io/taxinow/requesthandler/ZeebeClientFactory.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../RequestHandler/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../RequestHandler/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RequestHandler/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../RequestHandler/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../RequestHandler/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../RequestHandler/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RequestHandler/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,22 +107,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "/Users/kevinpakoy/IdeaProjects/workflow-taxinow/project-source-code/back-end/Database"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\pc\Documents\GitHub\workflow-taxinow\project-source-code\back-end\Database\src\main\java\io\taxinow\database" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Query_Driver">
+  <component name="RunManager" selected="Application.UpdateDriverRating">
     <configuration name="QueryDrivers" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="io.taxinow.database.QueryDrivers" />
+      <module name="Database" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.taxinow.database.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="QueryUserData" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.taxinow.database.QueryUserData" />
       <module name="Database" />
       <extension name="coverage">
         <pattern>
@@ -101,10 +157,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UpdateDriverRating" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.taxinow.database.UpdateDriverRating" />
+      <module name="Database" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.taxinow.database.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Query_Driver" />
+        <item itemvalue="Application.UpdateDriverRating" />
+        <item itemvalue="Application.QueryUserData" />
         <item itemvalue="Application.QueryDrivers" />
+        <item itemvalue="Application.Query_Driver" />
       </list>
     </recent_temporary>
   </component>

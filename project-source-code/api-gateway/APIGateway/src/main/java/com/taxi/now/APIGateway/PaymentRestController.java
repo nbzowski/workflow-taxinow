@@ -27,6 +27,7 @@ public class PaymentRestController {
             throws Exception {
         //userSessionID, userYCoordinate, userXCoordinate.
         String accept = requestParams.get("accept");
+        //String userId = requestParams.get("userId");
 
         System.out.println(" \nAccepted : "+ accept);
 
@@ -45,6 +46,19 @@ public class PaymentRestController {
 
 
                 // TODO get the variables from the task, do the business logic to complete the user task, and return the results
+
+                /*try (ZeebeClient client2 = ZeebeClientFactory.getZeebeClient()) {
+                    System.out.println("Throwing message");
+
+                    // Get and send all variables
+                    // ADDED: task.getVariables();
+                    System.out.println("Variables: " + task.getVariables().get(0));
+
+                    client2.newPublishMessageCommand().messageName("user-msg-send-payment-request").correlationKey(userId).variables(Map.of("userSessionID", userId)).send().exceptionally(throwable -> {
+                        throw new RuntimeException("Could not publish message", throwable);
+                    });
+                    Thread.sleep(3000);
+                };*/
 
 
                 client.completeTask(task.getId(), Map.of("userAccepted", accept)); // ADD the return variables (i.e. the user's destination address
@@ -91,11 +105,14 @@ public class PaymentRestController {
 
                 // TODO get the variables from the task, do the business logic to complete the user task, and return the results
 
-                /*try (ZeebeClient client2 = ZeebeClientFactory.getZeebeClient()) {
-                    client2.newPublishMessageCommand().messageName("user-msg-send-dest-address").correlationKey("").variables("").send().exceptionally(throwable -> {
+                try (ZeebeClient client2 = ZeebeClientFactory.getZeebeClient()) {
+                    System.out.println("Throwing message");
+
+                    client2.newPublishMessageCommand().messageName("user-msg-send-payment-request").correlationKey(userId).variables(Map.of("userSessionID", userId)).send().exceptionally(throwable -> {
                         throw new RuntimeException("Could not publish message", throwable);
                     });
-                };*/
+                    Thread.sleep(3000);
+                };
 
                 client.completeTask(task.getId(), Map.of("userId", userId, "expireYear", expireYear, "expireMonth", expireMonth, "creditCardNum", creditCardNum, "cardHolder", cardHolder)); // ADD the return variables (i.e. the user's destination address
 

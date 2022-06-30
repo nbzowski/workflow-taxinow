@@ -1,1 +1,3 @@
+io/taxinow/billing/SendPaymentConfirmation.class
 io/taxinow/billing/ProcessPayment.class
+io/taxinow/billing/ZeebeClientFactory.class
